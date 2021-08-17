@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/prism.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="favicon_io/site.webmanifest">
+  <title>Flexbox A Visual Guide</title>
+</head>
+<body>
+  <div class="container">
+    
+    <nav class="navbar">
+      <div class="navbar__fixed">
+        <header class="header">
+          <h1>Flexbox</h1>
+          <div class="header__flex">
+            <div class="header__flex--subtitle">A Visual</div>
+            <div class="header__flex--spacer"></div>
+            <div class="header__flex--empty"></div>
+          </div>
+          <div class="header__flex">
+            <div class="header__flex--empty"></div>
+            <div class="header__flex--spacer"></div>
+            <div class="header__flex--subtitle">Guide</div>
+          </div>
+        </header>
+        <ul class="navbar__list">
+          <li>
+            <a href="#introduction" class="navbar__list--item">Introduction</a>
+          </li>
+          <li>
+            <a href="#flex-direction" class="navbar__list--item">Flex Direction</a>
+          </li>
+          <li>
+            <a href="#justify-content" class="navbar__list--item">Justify Content</a>
+          </li>
+          <li>
+            <a href="#align-items" class="navbar__list--item">Align Items</a>
+          </li>
+          <li>
+            <a href="#margin-auto" class="navbar__list--item">Margin Auto</a>
+          </li>
+          <li>
+            <a href="#centering-content" class="navbar__list--item">Centering Content</a>
+          </li>
+          <li>
+            <a href="#flex-wrap" class="navbar__list--item">Flex Wrap</a>
+          </li>
+          <li>
+            <a href="#order" class="navbar__list--item">Order</a>
+          </li>
+          <li>
+            <a href="#flex-basis" class="navbar__list--item">Flex Basis</a>
+          </li>
+          <li>
+            <a href="#flex-grow" class="navbar__list--item">Flex Grow</a>
+          </li>
+          <li>
+            <a href="#flex-shrink" class="navbar__list--item">Flex Shrink</a>
+          </li>
+          <li>
+            <a href="#shorthand" class="navbar__list--item">Shorthand</a>
+          </li>
+          <li>
+            <a href="#further-reading" class="navbar__list--item">Further Reading</a>
+          </li>
+          <li class="back-link">
+            <a href="/index.html" class="navbar__list--item">Back to Portfolio</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <main class="main">
+      <section class="main__section introduction" id="introduction">
+        <header>
+          <h1>Introduction</h1>
+        </header>
+        <p>Hello! Welcome to this simple guide to <strong>CSS Flexbox</strong>. This is by no means a comprehensive overview, but is instead intended to act as a quick reference to those learning the basics of Flexbox. </p>
+        <p>In the example below we have three block level elements inside of a flex container represented by the dotted border. They have no height or width properties, just 0.75em of padding. The <strong>container</strong> has the property of <strong>flex</strong>. This forces the block level elements to stack side by side.</p>
+        <p>When assigning the flex property to a parent element, you are assigning a <strong>Main Axis</strong>, to which it's children are flexed across and a <strong>Cross Axis</strong> that runs perpendicular.</p>
+        <div class="axis-grid">
+          <div class="introduction__flex-example">
+            <div>Home</div>
+            <div>Search</div>
+            <div>Logout</div>
+          </div>
+          
+          <div class="axis-grid__arrow--column">
+            <div class="arrowhead-up"></div>
+            <div class="arrow-column"></div>
+            <div class="arrow-caption">Cross Axis</div>
+            <div class="arrow-column"></div>
+            <div class="arrowhead-down"></div>
+          </div>
+          
+          <div class="axis-grid__arrow--row">
+            <div class="arrowhead-left"></div>
+            <div class="arrow-row-wide"></div>
+            <div class="arrow-caption">Main Axis</div>
+            <div class="arrow-row"></div>
+            <div class="arrowhead-right"></div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ---------------------------- -->
+      
+      <section class="main__section flex-direction" id="flex-direction">
+        <header>
+          <h1>Flex Direction</h1>
+        </header>
+        <p>By default the, flex-direction property is set to <strong>row</strong>. If you want to stack your elements vertically, set flex-direction to <strong>column</strong> </p>
+        <p>Doing this will also change the <strong>Main Axis</strong> form horizontal to vertical.</p>
+        
+        
+        <div class="axis-grid">
+          <div class="flex-direction__flex-example">
+            <div>Home</div>
+            <div>Search</div>
+            <div>Logout</div>
+          </div>
+          
+          <div class="axis-grid__arrow--column">
+            <div class="arrowhead-up"></div>
+            <div class="arrow-column"></div>
+            <div class="arrow-caption">Main Axis</div>
+            <div class="arrow-column"></div>
+            <div class="arrowhead-down"></div>
+          </div>
+          
+          <div class="axis-grid__arrow--row">
+            <div class="arrowhead-left"></div>
+            <div class="arrow-row-wide"></div>
+            <div class="arrow-caption">Cross Axis</div>
+            <div class="arrow-row"></div>
+            <div class="arrowhead-right"></div>
+          </div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+              <code class="language-css">
+.flex-container {
+  display: flex;
+  flex-direction: column; 
+}
+              </code>
+          </pre>
+        </div>   
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section justify-content" id="justify-content">
+        <header>
+          <h1>Justify Content</h1>
+        </header>
+        <p>The justify-content property defines the distribution of elements along the <strong>Main Axis</strong>. The default option is <strong>flex-start</strong>, as depicted on the very first example at the top of this page. Setting the property to <strong>flex-end</strong> will push the element to the opposite end.</p>
+        <p>Other options include <strong>center</strong>, <strong>space-between</strong>, <strong>space-around</strong>, and <strong>space-evenly</strong> as shown below. </p>
+        
+        <div class="group-grid">
+          <div class="group-grid__example">
+            <h2>center</h2>
+            <div class="justify-content__flex-example">
+              <div>A</div>
+              <div>B</div>
+              <div>C</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                  <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+                  </code>
+              </pre>
+            </div>
+          </div> 
+          
+          <div class="group-grid__example">
+            <h2>space-between</h2>
+            <div class="justify-content__flex-example">
+              <div>A</div>
+              <div>B</div>
+              <div>C</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                  <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+                  </code>
+              </pre>
+            </div>
+          </div> 
+          <div class="group-grid__example">
+            <h2>space-around</h2>
+            <div class="justify-content__flex-example">
+              <div>A</div>
+              <div>B</div>
+              <div>C</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                  <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+                  </code>
+              </pre>
+            </div>
+          </div> 
+          <div class="group-grid__example">
+            <h2>space-evenly</h2>
+            <div class="justify-content__flex-example">
+              <div>A</div>
+              <div>B</div>
+              <div>C</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                  <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+                  </code>
+              </pre>
+            </div>
+          </div>  
+        </div>
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section align-items" id="align-items">
+        <header>
+          <h1>Align Items</h1>
+        </header>
+        <p>Just as you justify content along the <strong>Main Axis</strong>, you can align items along the <strong>Cross Axis</strong>.</p>
+        <p>The default value for <strong>align-items</strong> is <strong>stretch</strong>. This means the elements will stretch to fill their parent flex container. In the following examples, a height property has been added to demonstrate this.</p>
+        <p>Other options include <strong>center</strong>, <strong>flex-start</strong> and <strong>flex-end</strong>. </p>
+          
+        <div class="axis-grid">
+          <div class="align-items__flex-example">
+            <div>Home</div>
+            <div>Search</div>
+            <div>Logout</div>
+          </div>
+          
+          <div class="axis-grid__arrow--column">
+            <div class="arrowhead-up"></div>
+            <div class="arrow-column"></div>
+            <div class="arrow-caption">Cross Axis</div>
+            <div class="arrow-column"></div>
+            <div class="arrowhead-down"></div>
+          </div>
+        
+          <div class="axis-grid__arrow--row">
+            <div class="arrowhead-left"></div>
+            <div class="arrow-row-wide"></div>
+            <div class="arrow-caption">Main Axis</div>
+            <div class="arrow-body"></div>
+            <div class="arrowhead-right"></div>
+          </div>
+        </div>
+          
+          
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+  height: 200px;
+}
+            </code>
+          </pre>
+        </div>
+
+        <div class="group-grid">
+          <div class="group-grid__example">
+            <h2>stretch</h2>
+            <div class="align-items__flex-example">
+              <div>Home</div>
+              <div>Search</div>
+              <div>Logout</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                <code class="language-css">
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: stretch; /* default */
+}
+                </code>
+              </pre>
+            </div>
+          </div> 
+          <div class="group-grid__example">
+            <h2>center</h2>
+            <div class="align-items__flex-example">
+              <div>Home</div>
+              <div>Search</div>
+              <div>Logout</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                <code class="language-css">
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: center;
+}
+                </code>
+              </pre>
+            </div>
+          </div> 
+          
+          <div class="group-grid__example">
+            <h2>flex-start</h2>
+            <div class="align-items__flex-example">
+              <div>Home</div>
+              <div>Search</div>
+              <div>Logout</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                <code class="language-css">
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: flex-start;
+}
+                </code>
+              </pre>
+            </div>
+          </div> 
+          <div class="group-grid__example">
+            <h2>flex-end</h2>
+            <div class="align-items__flex-example">
+              <div>Home</div>
+              <div>Search</div>
+              <div>Logout</div>
+            </div>
+            <div class="snippet">
+              <pre>
+                <code class="language-css">
+.flex-container {
+  display: flex;
+  height: 200px;
+  align-items: flex-end;
+}
+                </code>
+              </pre>
+            </div>
+          </div> 
+          
+        </div>  
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section margin-auto" id="margin-auto">
+        <header>
+          <h1>Margin Auto</h1>  
+        </header>
+        <p>If you want to place some elements at either edge of the flex container, you can create a mixed arrangement by setting a margin value of <strong>auto</strong> on one of the flex elements.</p>
+        
+        <div class="margin-auto__flex-example">
+          <div class="margin-home">Home</div>
+          <div>Search</div>
+          <div>Logout</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home {
+  margin-right: auto;
+}
+            </code>
+          </pre>
+        </div>
+        
+        <div class="margin-auto__flex-example">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div class="margin-box1">1</div>
+          <div>2</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box1 {
+  margin-left: auto;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section centering-content" id="centering-content">
+        <header>
+          <h1>Centering Content</h1>
+        </header>
+        <p>To position your elements horizontally and vertically, you can use a combination of <strong>justify-content</strong> and <strong>align-items</strong>.</p>
+        <p>Here we set both properties to <strong>center</strong>.</p>
+        <strong></strong>
+        <div class="axis-grid">
+          <div class="centering-content__flex-example">
+            <div>Home</div>
+            <div>Search</div>
+            <div>Logout</div>
+          </div>
+          
+          <div class="axis-grid__arrow--column">
+            <div class="arrowhead-up"></div>
+            <div class="arrow-column"></div>
+            <div class="arrow-caption">Cross Axis</div>
+            <div class="arrow-column"></div>
+            <div class="arrowhead-down"></div>
+          </div>
+        
+        
+          <div class="axis-grid__arrow--row">
+            <div class="arrowhead-left"></div>
+            <div class="arrow-row-wide"></div>
+            <div class="arrow-caption">Main Axis</div>
+            <div class="arrow-body"></div>
+            <div class="arrowhead-right"></div>
+          </div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+              <code class="language-css">
+.flex-container {
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+}
+              </code>
+          </pre>
+        </div>
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section flex-wrap" id="flex-wrap">
+        <header>
+          <h1>Flex Wrap</h1>
+        </header>
+        <p>By default, the <strong>flex-wrap</strong> property is set to <strong>nowrap</strong>. In the following examples, the flex elements are given widths that when added together, will exceed the size of their flex container.</p>
+        <p>If <strong>flex-wrap</strong> is not defined or has the property <strong>nowrap</strong>, their widths will be ignored. If the container is too small for the content or is reduced in size to the same effect, the elements will break from the flow of the document.</p>
+        <p>Choosing <strong>wrap</strong> will maintain the widths of the elements and force them onto a new line if they exceed their boundaries</p>
+        
+        <div class="flex-wrap__flex-example">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>  
+          <div>D</div>
+          <div>E</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flex-container > div {
+  width: 130px;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section order" id="order">
+        <header>
+          <h1>Order</h1>
+        </header>
+        <p>When using the <strong>flex-direction</strong> property it is possible to reverse the order of the elements by choosing either <strong>row-reverse</strong> or <strong>column-reverse</strong>.</p>
+        <p>It is also possible to re-order specific elements with the order property. By default, every element has an order of <strong>0</strong>. If you assign a higher number, that element will be pushed to the back. The higher the number, the further back it will go. Similarly, if you assign a negative number, it will pushed to the front. The lower the number, the further forward it will go.</p>
+        
+        <div class="order__flex-example--reversed">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.flex-container > div {
+  width: 56px;
+}
+            </code>
+          </pre>
+        </div>
+        
+        <div class="order__flex-example">
+          <div class="box-A">A</div>
+          <div class="box-B">B</div>
+          <div class="box-C">C</div>
+          <div class="box-D">D</div>
+          <div class="box-E">E</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+}
+
+.flex-container > div {
+  width: 56px;
+}
+
+.box-A {
+  order: 1;
+}
+
+.box-E {
+  order: -1;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section flex-basis" id="flex-basis">
+        <h1>Flex Basis</h1>
+        <p>It is important to remember that <strong>flex-grow</strong> and <strong>flex-shrink</strong> are <strong>not</strong> a measure of size or a fractional proportion. They are a measure of the <strong>rate</strong> at which the element will grow or shrink.</p>
+        <p>To set an initial size we can use <strong>flex-basis</strong>. This property will define what an element can grow or shrink into based on it's container and when used in conjunction with <strong>flex-grow</strong> and/or <strong>flex-shrink</strong>.</p>
+        
+        <div class="flex-basis__flex-example">
+          <div>Home</div>
+          <div>Search</div>
+          <div>Logout</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+}
+
+.flex-example > div {
+  flex-basis: 250px;
+}
+            </code>
+          </pre>
+        </div>
+        
+      </section>
+      
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section flex-grow" id="flex-grow">
+        <header>
+        	<h1>Flex Grow</h1>
+        </header>
+        <p>The <strong>flex-grow</strong> property defines the factor at which an element will grow to fill any available space in it's parent container.</p>
+        <p>In this example, no widths have been defined. Both the home and search elements have <strong>flex-grow</strong> properties forcing them to expand. Resize the browser to see them adjust to fill the available space.</p>
+        
+        
+        <div class="flex-grow__flex-example">
+          <div class="home-grow">Home</div>
+          <div class="search-grow">Search</div>
+          <div>Logout</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+}
+
+.home {
+  flex-grow: 2;
+}
+
+.search {
+  flex-grow: 1;
+}
+            </code>
+          </pre>
+        </div>
+      </section>
+      <!-- ---------------------------------------------- -->
+      <section class="main__section flex-shrink" id="flex-shrink">
+        <header>
+          <h1>Flex Shrink</h1>
+        </header>
+        <p>The flex-shrink property defines the factor at which an element will shrink if the total size of the elements exceed their container's size.</p>
+        <p>In this example, the first box has a flex-shrink property, pushing it to the smallest possible size.</p>
+
+        <div class="flex-shrink__flex-example">
+          <div class="home-shrink">Home</div>
+          <div class="search-shrink">Search</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+}
+
+.home {
+  flex-shrink: 1;
+}
+
+.search {
+  width: 200px;
+}
+            </code>
+          </pre>
+        </div>
+        
+      </section>
+      <!-- ---------------------------------------------- -->
+      
+      <section class="main__section shorthand" id="shorthand">
+        <header>
+          <h1>Shorthand</h1>
+        </header>
+        <p>We can combine <strong>flex-grow</strong>,  <strong>flex-shrink</strong> and <strong>flex-basis</strong> with the shorthand property called <strong>flex</strong>.</p>
+        <p><strong>flex: 1;</strong> ...is shorthand for...</p>
+        <p><strong>flex: 1 1 0;</strong> ...which is shorthand for..</p>
+        <ul>
+          <li><strong>flex-grow: 1;</strong></li>
+          <li><strong>flex-shrink: 1;</strong></li>
+          <li><strong>flex-basis: 0;</strong></li>
+        </ul>
+        
+        <p>In the example below, the first box has a flex-grow property of 1, a flex-shrink property of 0 and a flex-basis of 200px. It will grow but not shrink beyond 200px.</p>
+        
+        <p>The second box has a flex-grow property of 10, a flex-shrink property of 1 and a flex-basis of 0px. At smaller browser sizes it will shrink to fit, but when the browser size increases, it will grow rapidly, exceeding the size of the first box when given room.</p>
+        
+        
+        <div class="shorthand__flex-example">
+          <div class="home-shorthand">Home</div>
+          <div class="search-shorthand">Search</div>
+        </div>
+        
+        <div class="snippet">
+          <pre>
+            <code class="language-css">
+.flex-container {
+  display: flex;
+}
+
+.home {
+  flex: 1 0 200px;
+}
+
+.search {
+  flex: 10 1 0px;
+}
+            </code>
+          </pre>
+        </div>
+        
+      </section>
+      <!-- ---------------------------------------------- -->
+      <section class="main__section further-reading" id="further-reading">
+        <header>
+          <h1>Further Reading</h1>
+        </header>
+        <p>Thank you for taking the time to read this guide. For a more in depth look at flexbox, please consider the following:</p>
+        <ul class="further-reading__list">
+          <li class="further-reading__list--item">
+            The CSS Tricks <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox//li" target="_blank">Complete Guide to Flexbox</a>
+          </li>
+          <li class="further-reading__list--item">
+            JavaScript Teacher's <a href="https://jstutorial.medium.com/the-complete-illustrated-flexbox-tutorial-d35c085dbf35" target="_blank">The Complete Illustrated Flexbox Tutorial</a> on Medium
+          </li>
+          <li class="further-reading__list--item">
+            This excellent free <a href="https://scrimba.com/learn/flexbox" target="_blank">interactive course</a> on <a href="https://scrimba.com/" target="_blank">Scrimba</a>
+          </li>
+          <li class="further-reading__list--item">
+            JavaScript Teacher's <a href="https://jstutorial.medium.com/the-complete-illustrated-flexbox-tutorial-d35c085dbf35" target="_blank">The Complete Illustrated Flexbox Tutorial</a> on Medium
+          </li>
+          <li class="further-reading__list--item">
+            The always dependable <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank">MDN guide</a>
+          </li>
+        </ul>
+        <p class="further-reading__prism-link" >Syntax highlighting by <a href="https://prismjs.com/index.html" target="_blank">Prism</a></p>
+      </section>
+      
+    </main>
+    
+  </div>
+</body>
+<script src="./JS/prism.js"></script>
+</html>
