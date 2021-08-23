@@ -116,19 +116,6 @@ a {
   min-height: 500px;
 }
 
-.back-link {
-  margin-top: 1em;
-}
-
-.back-link a {
-  color: var(--clr-midgrey);
-  transition: all 0.4s;
-} 
-
-.back-link a:hover {
-  color: var(--clr-darkgrey);
-}
-
 .main__section {
   display: flex;
   flex-direction: column;
